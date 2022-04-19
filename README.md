@@ -1,4 +1,4 @@
-# firebase_vue_vuetify
+# Graphql_vue_vuetify
 
 ## Project setup
 ```
