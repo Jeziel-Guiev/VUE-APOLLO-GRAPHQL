@@ -83,7 +83,6 @@
     </div>
 </template>
 <script>
-import axios from 'axios'
 import {getJWTaccess} from '@/auth/jwtService.js'
 export default{
     data(){

@@ -74,7 +74,6 @@
 import gql from 'graphql-tag';
 import { mapActions } from 'vuex'
 import {getHomeRouteForLoggedInUser} from '@/auth/utils.js'
-import axios from 'axios'
   export default {
     data: () => ({
       icons: [
@@ -89,7 +88,7 @@ import axios from 'axios'
         v => !!v || 'Name is required',
         v => (v && v.length <= 20) || 'Password must be less than 20 characters',
       ],
-      email: 'josseu@gmail.com',
+      email:'josseu@gmail.com',//'aarom.colque@sadosa.edu.bo',//, 'josseu@gmail.com',
       emailRules: [
         v => !!v || 'E-mail is required',
         v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
@@ -105,7 +104,8 @@ import axios from 'axios'
         authDetails.password=this.password;
         this.login(authDetails)
         .then((data) => {
-          if (data==true) this.$router.replace(getHomeRouteForLoggedInUser('admin'));
+          console.log(data)
+          if (data.state==true) this.$router.replace(getHomeRouteForLoggedInUser(data.role));
         })
       },
       async register(){

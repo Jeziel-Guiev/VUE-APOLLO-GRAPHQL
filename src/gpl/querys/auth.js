@@ -10,5 +10,37 @@ export const LOGGED_IN_USER = gql`
         title
       }
     }
+
   }
 `
+export const GetUserforId = gql`
+query GetUserforId($id: ID!) {
+    GetUserforId(id: $id) {
+    email
+    direccion
+    telefono
+    turno
+    id
+    paralelo
+    apellido
+    nivel
+    name
+    role
+    ability{
+     resource
+    }
+    }
+  }
+
+`
+
+export const GetUsersListAll = gql`
+  query {
+    listAllUsers {
+      email
+      role
+      ability {
+        resource
+      }
+   }
+  }`

@@ -114,7 +114,7 @@
 
 <script>
 
-import axios from 'axios';
+
   export default {
     data: () => ({
          icons: [
@@ -156,14 +156,7 @@ import axios from 'axios';
         let config={
           headers:{"Content-Type":"application/json"}
         }
-        await axios.post('/signup-user',data,config).then(({data})=>{
-          
-          if(data.status=='oki'){
-            this.$router.replace({name:'auth-login'});
-          }else{
-             this.$alert('no register');
-          }     
-        }).catch(err=>alert('error fatal'));
+   
       },
       login(){
         this.$router.push('/login')

@@ -12,16 +12,19 @@ const AUTH_TOKEN = 'apollo-token'
 // Http endpoint
 const httpEndpoint = process.env.VUE_APP_GRAPHQL_HTTP || 'http://localhost:3000/graphql'
 
-// Config
+// Config Bearer
 
 const authLink = setContext(async (_, { headers }) => {
   // Use your async token function here:
-  const token = JSON.parse(localStorage.getItem('apollo-token'))
-  // Return the headers to the context so httpLink can read them
+  const token =localStorage.getItem('apollo-token')
+  //console.log(token)
+    // const firs=token.slice(1,-1);
+    // const second=firs.substring(0, token.length - 1);
+  // // Return the headers to the context so httpLink can read them
   return {
     headers: {
       ...headers,
-      authorization: token || ''
+      authorization:token || ''
     }
   }
 })
@@ -31,7 +34,7 @@ const defaultOptions = {
   httpEndpoint,
   // You can use `wss` for secure connection (recommended in production)
   // Use `null` to disable subscriptions
-  wsEndpoint: null,
+  wsEndpoint:null,//process.env.VUE_APP_GRAPHQL_WS || 'ws://localhost:3000/graphql', //null,
   // LocalStorage token
   tokenName: AUTH_TOKEN,
   // Enable Automatic Query persisting with Apollo Engine

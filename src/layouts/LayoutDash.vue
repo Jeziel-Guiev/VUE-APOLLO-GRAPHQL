@@ -12,6 +12,7 @@
     >
     <v-app-bar-nav-icon @click.stop="drawer = !drawer" > </v-app-bar-nav-icon>
       <v-toolbar-title>{{$store.state.namePlaceData}}</v-toolbar-title>
+      <div>{{$store.state.role}}</div>
       <v-spacer></v-spacer>
       <Mensajes/>
       <v-tooltip bottom color="red">
@@ -84,7 +85,6 @@ import { getJWTaccess,getJWToken } from '@/auth/jwtService'
 import indexlist from '../navigation/vertical/apps-and-pages.js'
 import selectSidebar from './layout-vertical/layout_select.vue'
 import Mensajes from '@/components/navigation/horizontal/Mensajes.vue'
-import axios from 'axios'
 export default {
   components:{
     selectSidebar,
@@ -100,10 +100,6 @@ export default {
   }),
   methods:{
     logout(){
-
-        //console.log("saliendo de la aplicacion")
-          
-          this.$store.commit('updateAbility',[]);
           localStorage.clear();
           this.$router.push('/login');
    

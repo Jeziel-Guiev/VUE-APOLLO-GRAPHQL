@@ -9,9 +9,7 @@
 <script>
 import ComponentLayoutFull from './layouts/Layoutfull.vue';
 import ComponentLayoutDash from './layouts/LayoutDash.vue'
-import firebase from 'firebase/compat/app';
-import 'firebase/compat/auth';
-import 'firebase/compat/firestore';
+
 import { isUserLoggedIn, getUserData, getHomeRouteForLoggedInUser } from '@/auth/utils'
 export default {
   name: 'App',
@@ -21,20 +19,14 @@ export default {
   },
   data: () => ({
     drawer: false,
-    db:firebase.firestore(),
-    //isLogin:this.$store.state.user ? this.$store.state.user.role:null
   }),
     computed: {
     layout() {
-      //console.log("app_computed");
       const isLoggedIn = isUserLoggedIn();
       if (this.$route.meta.layout === 'full'){
-        //console.log("is layout full");
         return 'ComponentLayoutFull' // layout-LayoutFull
       }else{  
         if (isLoggedIn){
-        //this.$store.commit('updateAbility',JSON.parse(localStorage.getItem('userData')).ability);
-          //console.log("dash layout");  
         return `ComponentLayoutDash`
         }
       }

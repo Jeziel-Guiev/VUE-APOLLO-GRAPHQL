@@ -9,31 +9,13 @@ export default [
       },
     },
     {
-        path: '/dashboard/cajera',
+        path: '/dashboard/estudiante',
         name: 'dashboard-cajera',
-        component: () => import('@/views/dashboard/Cajera.vue'),
+        component: () => import('@/views/dashboard/Student.vue'),
         meta: {
-          resource: 'cajera',//['cajera'],
+          resource: 'student',
           action: 'read',
         },
-    },
-    {
-        path: '/dashboard/profesor',
-        name: 'dashboard-profesor',
-        component: () => import('@/views/dashboard/Profesor.vue'),
-        meta: {
-          resource: 'Pro',
-          action: 'read',
-        },
-    },
-    {
-      path: '/dashboard/secretaria',
-      name: 'dashboard-secretaria',
-      component: () => import('@/views/dashboard/Secretaria.vue'),
-      meta: {
-        resource: 'Secr',
-        action: 'read',
-      },
-   }
+    }
   ]
   

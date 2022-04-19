@@ -9,11 +9,8 @@ export const getUserData = () => {
 
 
 export const getHomeRouteForLoggedInUser = userRole => {
-  if (userRole === 'estudent') return '/dashboard/estudiante'
-  if (userRole === 'cajera') return '/dashboard/cajera'
-  if (userRole === 'teacher') return '/dashboard/profesor'
+  console.log(userRole)
+  if (userRole === 'student') return '/dashboard/estudiante'
   if (userRole === 'admin') return '/dashboard/administrador'
-  if (userRole === 'User') return '/dashboard/estudiante'
-  if (userRole === 'client') return { name: 'access-control' }
   return { name: 'auth-login' }
 }
